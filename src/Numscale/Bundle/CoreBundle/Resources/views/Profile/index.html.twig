@@ -1,0 +1,17 @@
+{%  extends 'NumscaleCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+    <h3>{{ "profile"|trans }}</h3>
+
+        <h4>{{ "Username"|trans  }}: {{ user.username }}</h4>
+        <p>{{ "Email"|trans  }}: {{ user.email }}</p>
+
+
+        <address>
+        <strong>{{ "form.company.name"|trans  }}: {{ user.company.name }}</strong><br>
+        {{ user.company.address }}<br>
+        {{ user.company.postalCode }} {{ user.company.city }}<br>
+        {{ user.company.country|country }}
+        </address>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+authentication:
+  login: "Se Connecter"
+You: You
+Your.Company: Your Company
+form:
+  company:
+    name: Company Name
+    address: Address
+    city: City
+    postal_code: Postal Code
+    select:
+      country: Select your Country
+profile: Profile

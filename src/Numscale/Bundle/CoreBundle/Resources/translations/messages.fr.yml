@@ -1,0 +1,12 @@
+authentication:
+  login: "Se Connecter"
+You: Vous
+Your.Company: Votre Société
+form:
+  company:
+    name: Nom de Société
+    address: Adresse
+    city: Ville
+    postal_code: Code Postal
+    select:
+      country: Sélectionnez votre Pays

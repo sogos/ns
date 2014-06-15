@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <!-- Bootstrap Vendor -->
+        {% stylesheets
+        '@NumscaleCoreBundle/Resources/public/vendor/bootstrap/dist/css/bootstrap.min.css'
+        '@NumscaleCoreBundle/Resources/public/vendor/bootstrap/dist/css/bootstrap-theme.min.css'
+        '@NumscaleCoreBundle/Resources/public/vendor/select2/select2.css'
+        '@NumscaleCoreBundle/Resources/public/vendor/select2/select2-bootstrap.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+{% block javascripts %}
+    {% javascripts
+    '@NumscaleCoreBundle/Resources/public/vendor/jquery/dist/jquery.min.js'
+    '@NumscaleCoreBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js'
+    '@NumscaleCoreBundle/Resources/public/vendor/select2/select2.min.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        $(document).ready(function() { $("select").select2(); });
+    </script>
+{% endblock %}
+</body>
 </html>

@@ -1,0 +1,28 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% import 'NumscaleCoreBundle:macros:forms.html.twig' as custom %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9 col-lg-offset-3 col-lg-10">
+            <h2>{{ "layout.register"|trans }}</h2>
+            <div class="col-lg-6">
+                <form role="form" novalidate="novalidate" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                    <h4>{{ "You"|trans }}</h4>
+                    {{ custom.form_custom(form.email,"form.email", 'input-sm') }}
+                    {{ custom.form_custom_inline_repeat(form.plainPassword,"form.password", "form.password_confirmation", 'input-sm'  ) }}
+                    {{ custom.form_custom(form.username,"form.username", 'input-sm' ) }}
+                    <h4>{{ "Your.Company"|trans([],"messages") }}</h4>
+                    {{ custom.form_custom(form.company.name,"form.company.name", 'input-sm' ) }}
+                    {{ custom.form_custom(form.company.address,"form.company.address", 'input-sm' ) }}
+                    {{ custom.form_custom(form.company.city,"form.company.city",'input-sm' ) }}
+                    {{ custom.form_custom(form.company.postal_code,"form.company.postal_code",'input-sm' ) }}
+                    {{ custom.form_custom(form.company.country,"form.company.country", 'input-sm') }}
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                    {{ form_rest(form) }}
+                </form>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

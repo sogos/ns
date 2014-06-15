@@ -1,0 +1,34 @@
+{% macro form_custom(formField, placeHolder, inputClass) %}
+    {% set has_error = '' %}
+    {% if form_errors(formField)|length > 0 %}
+        {% set has_error = 'has-error' %}
+    {% endif %}
+    <div class="form-group {{ has_error }}">
+       {# <label  class="control-label" for="{{ formField.vars.id }}">{{ form_label(formField) }}</label>#}
+        {{ form_widget(formField, {'attr': { 'class': 'form-control ' ~ inputClass, 'placeholder': placeHolder|trans}}) }}
+        <span class="help-block"><small>{{ form_errors(formField)}}</small></span>
+
+    </div>
+{% endmacro %}
+
+{% macro form_custom_inline_repeat(formField, placeHolderFirst, placeHolderSecond, inputClass) %}
+    {% set has_error = '' %}
+    {% if form_errors(formField.first)|length > 0 %}
+        {% set has_error = 'has-error' %}
+    {% endif %}
+    <div class="form-group {{ has_error }}">
+        {#<label   class="control-label" for={{ formField.first.vars.id }}">{{ placeHolderFirst|trans  }}</label>#}
+        <div class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="{{ formField.second.vars.id }}">{{ placeHolderSecond|trans  }}</label>
+            {{ form_widget(formField.first, {'attr': { 'for': 'a', 'class': 'form-control ' ~ inputClass, 'placeholder': placeHolderFirst|trans}}) }}
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword2">Password</label>
+            {{ form_widget(formField.second, {'attr': { 'for': 'a', 'class': 'form-control ' ~ inputClass, 'placeholder': placeHolderSecond|trans}}) }}
+        </div>
+    </div>
+    <span class="help-block"><small>{{ form_errors(formField.first)}}{{ form_errors(formField.second)}}</small></span>
+    </div>
+    <p></p>
+{% endmacro %}

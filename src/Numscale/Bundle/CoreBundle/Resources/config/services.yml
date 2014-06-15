@@ -1,0 +1,17 @@
+services:
+    numscale.core.registration.form.type:
+        class: Numscale\Bundle\CoreBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: numscale_user_registration }
+    numscale.core.company.form.type:
+        class: Numscale\Bundle\CoreBundle\Form\Type\CompanyType
+        arguments: ['@translator']
+        tags:
+            - { name: form.type, alias: numscale_company_form }
+
+    kernel.listener.language:
+            class: Numscale\Bundle\CoreBundle\EventListener\LanguageListener
+            arguments: ["%kernel.default_locale%", "%supported_locales%"]
+            tags:
+                - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

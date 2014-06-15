@@ -1,0 +1,12 @@
+intl_routing:
+    resource: "routing_intl.yml"
+    prefix: /{_locale}/
+    requirements:
+        _locale: en|fr
+
+## This is a Special Root
+## Will be intercepted via Numscale\Bundle\CoreBundle\EventListener\LanguageListener
+#intl_interceptor:
+#    resource: "@NumscaleCoreBundle/Controller/"
+#    type:     annotation
+#    prefix: /

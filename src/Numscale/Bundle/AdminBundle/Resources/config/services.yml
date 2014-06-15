@@ -1,0 +1,21 @@
+services:
+    sonata.admin.post:
+        class: Numscale\Bundle\AdminBundle\Admin\CompanyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Clients", label: "Company" }
+        arguments:
+            - ~
+            - Numscale\Bundle\CoreBundle\Entity\Company
+            - ~
+        calls:
+            - [ setTranslationDomain, [NumscaleCoreBundle ]]
+    sonata.admin.user:
+        class: Numscale\Bundle\AdminBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Clients", label: "Users" }
+        arguments:
+            - ~
+            - Numscale\Bundle\CoreBundle\Entity\User
+            - ~
+        calls:
+            - [ setTranslationDomain, [NumscaleCoreBundle ]]

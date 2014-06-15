@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+        {% image '@NumscaleCoreBundle/Resources/public/images/numscaleLogo.png' %}
+        <img src="{{ asset_url }}" alt="Logo Numscale">
+        {% endimage %}
+        {% include 'NumscaleCoreBundle:Backend:navbar.html.twig' %}
+        {% block content %}{% endblock %}
+{% endblock %}

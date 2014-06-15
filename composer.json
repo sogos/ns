@@ -8,7 +8,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.5.*",
+        "symfony/symfony": "~2.4.1",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
@@ -17,7 +17,15 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/user-bundle": "2.0.x-dev",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "jms/translation-bundle": "dev-master",
+        "sonata-project/core-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "dev-master",
+        "sonata-project/datagrid-bundle": "dev-master",
+        "sonata-project/intl-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
